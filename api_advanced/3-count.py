@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-"""Module that recursively counts keyword occurrences in hot article titles."""
+"""Module that recursively counts keyword occurrences in hot article titles.
+
+This module contains a single function, count_words, which queries a
+subreddit's hot articles recursively and prints a sorted count of how
+often each given keyword appears in the titles.
+"""
 import re
 
 import requests
@@ -16,7 +21,9 @@ def count_words(subreddit, word_list, after=None, counts=None):
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100"
     if after:
         url += f"&after={after}"
-    headers = {"User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ariafifty-one)"}
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ariafifty-one)"
+    }
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:

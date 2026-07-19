@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Module that queries the Reddit API for a subreddit's top ten hot posts."""
+"""Module that queries the Reddit API for a subreddit's top ten hot posts.
+
+This module contains a single function, top_ten, which prints the
+titles of the first 10 hot posts listed for a given subreddit.
+"""
 import requests
 
 
@@ -9,7 +13,9 @@ def top_ten(subreddit):
     If the subreddit is invalid, print None.
     """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers = {"User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ariafifty-one)"}
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ariafifty-one)"
+    }
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:
