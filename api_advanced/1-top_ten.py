@@ -12,7 +12,7 @@ def top_ten(subreddit):
 
     If the subreddit is invalid, print None.
     """
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ariafifty-one)"
     }

@@ -13,9 +13,9 @@ def recurse(subreddit, hot_list=[], after=None):
 
     If the subreddit is invalid, return None.
     """
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100"
+    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(subreddit)
     if after:
-        url += f"&after={after}"
+        url += "&after={}".format(after)
     headers = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/ariafifty-one)"
     }
